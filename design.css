@@ -1,0 +1,83 @@
+/* General styling for text within the SVG (wheel) */
+text {
+    font-family: "Merry Christmas", sans-serif; /* Festive font */
+    font-size: 11px;
+    pointer-events: none;
+}
+
+/* Styling for the main wheel container */
+#chart {
+    margin: 0 auto; /* Center horizontally */
+    width: 1000px; /* Increase width for larger wheel */
+    height: 1000px;
+    position: relative;
+    background: url('path/to/christmas-background.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Style for the question text (displayed under the wheel) */
+#question {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Question text (assignment text) styling */
+#question h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Festive green */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Add Christmas tree emoji after the question text */
+#question h1::after {
+    content: " 🎄";
+    padding-left: 10px;
+}
+
+/* Styling for the reset button positioned below the question text */
+#resetButton {
+    display: block;
+    margin: 20px auto; /* Center the button */
+    background-color: #4CAF50; /* Festive green */
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effects for wheel slices */
+.slice path {
+    transition: transform 0.2s, fill-opacity 0.2s;
+}
+
+.slice path:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    fill-opacity: 0.8; /* Brighten the color on hover */
+    cursor: pointer; /* Show pointer to indicate interactivity */
+}
+
+/* Glow animation for the wheel during spin */
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px #FF5733; }
+    50% { box-shadow: 0 0 20px #FFC300; }
+    100% { box-shadow: 0 0 10px #FF5733; }
+}
+
+.glow {
+    animation: glowing 1s infinite; /* Apply the glowing animation */
+    transform-origin: center;
+}
+
+/* Sparkle effect for completed tasks */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.sparkle {
+    animation: sparkle 0.5s ease-in-out;
+}
